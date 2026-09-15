@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  
+  --color-ivory: #FAF8F5;
+  --color-ivory-light: #FDFCFB;
+  --color-sand: #EAE3D9;
+  --color-sand-dark: #D4C9B8;
+  --color-charcoal: #1C1C1A;
+  --color-charcoal-light: #2A2A27;
+  --color-stone: #8C867D;
+  --color-forest: #2D3A2E;
+  --color-gold: #C5A880;
+  --color-gold-dark: #A88B63;
+}
+
+/* Base resets & Luxury custom styles */
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    color: var(--color-charcoal);
+    background-color: var(--color-ivory);
+  }
+  
+  h1, h2, h3, h4, .font-serif {
+    font-family: var(--font-serif);
+  }
+}
+
+/* Luxury Editorial Typography utilities */
+.tracking-ultra {
+  letter-spacing: 0.25em;
+}
+
+.tracking-mega {
+  letter-spacing: 0.35em;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF8F5;
+}
+::-webkit-scrollbar-thumb {
+  background: #D4C9B8;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C5A880;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Image reveal overlay animation */
+@keyframes imageReveal {
+  from {
+    transform: scale(1.1);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.animate-hero-zoom {
+  animation: imageReveal 12s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Reduced motion preference support */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
